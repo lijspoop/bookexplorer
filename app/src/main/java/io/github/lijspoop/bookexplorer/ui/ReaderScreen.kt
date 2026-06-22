@@ -12,6 +12,7 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -46,7 +47,6 @@ fun ReaderScreen(
 ) {
     val pages by viewModel.pages.collectAsStateWithLifecycle()
     val chapters by viewModel.chapters.collectAsStateWithLifecycle()
-
 
     val currentPage by viewModel.currentPage.collectAsStateWithLifecycle()
     val currentIndex by viewModel.currentIndex.collectAsStateWithLifecycle()
@@ -332,6 +332,11 @@ fun ReaderScreen(
                 SaveButtons()
             }
         }
+    }
+
+    // отмена изменений
+    BackHandler(enabled = editable) {
+        viewModel.toggleEditing()
     }
 
     Box(modifier = Modifier.fillMaxSize()) {
