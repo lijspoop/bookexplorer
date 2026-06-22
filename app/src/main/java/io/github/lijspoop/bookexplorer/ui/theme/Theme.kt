@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
@@ -98,7 +99,8 @@ fun BookExplorerTheme(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(readerColors.background)
-                    .statusBarsPadding(), // для enableEdgeToEdge()
+                    .statusBarsPadding()
+                    .navigationBarsPadding(), // для enableEdgeToEdge()
             ) {
                 content()
             }
