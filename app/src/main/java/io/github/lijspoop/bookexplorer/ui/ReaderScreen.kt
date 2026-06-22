@@ -137,7 +137,7 @@ fun ReaderScreen(
                                 try {
                                     val intent = android.content.Intent(android.content.Intent.ACTION_VIEW, url)
                                     context.startActivity(intent)
-                                } catch (e: Exception) {
+                                } catch (_: Exception) {
                                     Toast.makeText(context, "Не удалось открыть ссылку в браузере", Toast.LENGTH_SHORT).show()
                                 }
                                 return true
@@ -416,11 +416,11 @@ fun ReaderScreenPreview() {
     return sb.toString()
 }*/
 
-fun String.escapeWhitespace(): String = this
+/*fun String.escapeWhitespace(): String = this
     .replace("\n", "\\n")
     .replace("\r", "\\r")
     .replace("\t", "\\t")
-    .replace(" ", "·")   // точки для пробелов
+    .replace(" ", "·")   // точки для пробелов*/
 
 fun buildEditableHtml(
     bodyContent: String,
