@@ -34,6 +34,7 @@ import io.github.lijspoop.bookexplorer.model.BookChapter
 import io.github.lijspoop.bookexplorer.repository.BookRepository
 import io.github.lijspoop.bookexplorer.viewmodel.ReaderViewModel
 import io.github.lijspoop.bookexplorer.ui.theme.BookExplorerTheme
+import io.github.lijspoop.bookexplorer.ui.theme.LocalReaderColors
 import io.github.lijspoop.bookexplorer.ui.theme.ReaderColors
 import java.io.StringReader
 
@@ -59,7 +60,7 @@ fun ReaderScreen(
 
     var webView by remember { mutableStateOf<WebView?>(null) }
 
-    val readerColors = ReaderColors.from(MaterialTheme.colorScheme)
+    val readerColors = LocalReaderColors.current
 
     var isUIVisible by remember { mutableStateOf(false) }
 
@@ -350,7 +351,8 @@ fun ReaderScreen(
             }
 
             if (LocalInspectionMode.current) {
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Box(modifier = Modifier.fillMaxSize().weight(1f),
+                    contentAlignment = Alignment.Center) {
                     Text("Содержимое книги", color = readerColors.text)
                 }
             } else {
